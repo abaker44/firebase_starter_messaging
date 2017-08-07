@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Events</ion-title>
+    <ion-buttons end>
+   </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="addEventForm" (submit)="addEvent()" >
+
+    <ion-item>
+      <ion-label stacked>Name</ion-label>
+      <ion-input #eventName formControlName="eventName" type="text" placeholder="Event Name">
+        </ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-input #eventDate formControlName="eventDate" type="date" placeholder="Event Date">
+      </ion-input>
+  </ion-item>
+  <ion-item>
+  <ion-input #eventLocation formControlName="eventLocation" type="text" placeholder="Event Location">
+    </ion-input>
+</ion-item>
+<ion-item>
+<ion-input #eventDetails formControlName="eventDetails" type="text" placeholder="Event Details">
+  </ion-input>
+</ion-item>
+<ion-item>
+  <ion-label>Public</ion-label>
+<ion-checkbox #eventPublic formControlName="eventPublic" type="checkBox">
+</ion-checkbox>
+</ion-item>
+
+ <button ion-button block type="submit">
+   Create Event
+ </button>
+</form>
+</ion-content>

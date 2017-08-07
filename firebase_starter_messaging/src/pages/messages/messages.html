@@ -1,0 +1,42 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>Messages</ion-title>
+    <ion-buttons start>
+     <button ion-button icon-only (click)="goToSettings()">
+       <ion-icon name="ios-settings"></ion-icon>
+     </button>
+   </ion-buttons>
+    <ion-buttons end>
+     <button ion-button icon-only (click)="addConvo()">
+       <ion-icon name="ios-add"></ion-icon>
+     </button>
+   </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item-sliding *ngFor="let convo of conversationList">
+   <ion-item (click)="goToConvoDetail(convo.key, convo.recieverInfo)">
+
+     <ion-avatar>
+       <img src={{convo?.photoURL}}>
+     </ion-avatar>
+     <div>
+       <h6 class="messageinfo"> <strong>{{convo?.displayName}}</strong></h6>
+       <p style="float: right;" class="messageinfo"><strong>{{convo?.newest}}</strong></p>
+     </div>
+
+     </ion-item>
+     <ion-item-options side="right">
+       <button ion-button color="danger" (click)="archive(convo.key)">
+         <ion-icon name="archive"></ion-icon>
+         Archive
+       </button>
+     </ion-item-options>
+
+   </ion-item-sliding>
+   </ion-list>
+</ion-content>

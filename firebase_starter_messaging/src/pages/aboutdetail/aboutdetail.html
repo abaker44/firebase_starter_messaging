@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Events</ion-title>
+    <ion-buttons end>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let event of currentEvent">
+     <ion-card-header>
+       {{event?.title}}
+     </ion-card-header>
+     <ion-card-content>
+       <p>Ticket: <strong>{{event?.location}}</strong></p>
+       <p>Date: <strong>{{event?.date}}</strong></p>
+       <p>Location: <strong>{{event?.location}}</strong></p>
+       <p>Details: <strong>{{event?.details}}</strong></p>
+       <ion-toolbar>
+           <ion-segment [(ngModel)]="inviteSelect">
+             <ion-segment-button value="going" (click)="setGoing()">
+               Going
+             </ion-segment-button>
+             <ion-segment-button value="maybe" (click)="setMaybe()">
+               Maybe
+             </ion-segment-button>
+             <ion-segment-button value="notGoing" (click)="setNotGoing()">
+               Not Going
+             </ion-segment-button>
+           </ion-segment>
+         </ion-toolbar>
+     </ion-card-content>
+   </ion-card>
+
+   <ion-toolbar>
+       <ion-segment [(ngModel)]="invitedSegment">
+         <ion-segment-button value="going" (click)="getGoing()">
+           Going
+         </ion-segment-button>
+         <ion-segment-button value="maybe" (click)="getMaybe()">
+           Maybe
+         </ion-segment-button>
+         <ion-segment-button value="notGoing" (click)="getNotGoing()">
+           Not Going
+         </ion-segment-button>
+         <ion-segment-button value="invited" (click)="getInvited()">
+           Invited
+         </ion-segment-button>
+       </ion-segment>
+     </ion-toolbar>
+
+     <ion-card *ngFor="let member of inviteMembers">
+       <ion-avatar item-start>
+            <img src={{member?.photoURL}} style="max-width: 75px">
+          </ion-avatar>
+        <ion-card-header>
+          {{member?.displayName}}
+        </ion-card-header>
+        <ion-card-content>
+          <p>Email: <strong>{{member?.email}}</strong></p>
+        </ion-card-content>
+      </ion-card>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Account</ion-title>
+    <ion-buttons end>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+    <ion-avatar item-start>
+  <img src={{photoURL}} style="max-width: 100px">
+</ion-avatar>
+
+<form [formGroup]="editInfo" (submit)="updateName()" novalidate>
+  <ion-card-header>
+    <input #newName formControlName="newName" type="text" placeholder={{displayName}}>
+  </ion-card-header>
+  <ion-card-content>
+    <p class="title">Email: </p>
+    <input #newEmail formControlName="newEmail" type="text" placeholder={{email}}><br/>
+<ion-buttons end>
+    <button class="button button-md button-default button-default-md" type="submit">
+     <ion-icon name="ios-send"></ion-icon>
+    </button>
+    </ion-buttons>
+
+
+  </ion-card-content>
+</form>
+</ion-card>
+</ion-content>

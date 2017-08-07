@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Account</ion-title>
+    <ion-buttons end>
+     <button ion-button icon-only (click)="logOut()">
+       <ion-icon name="md-log-out"></ion-icon>
+     </button>
+   </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-avatar item-start>
+  <img src={{photoURL}} style="max-width: 100px">
+</ion-avatar>
+<ion-card-header>
+<span [innerHTML]="displayName"></span>
+</ion-card-header>
+<ion-card-content>
+<p class="title">Email: </p><p><span [innerHTML]="email"></span></p>
+<ion-buttons end>
+<button ion-button icon-only style="text-align: right;" (click)="editContact()">
+   <ion-icon name="ios-settings"></ion-icon>
+ </button>
+ </ion-buttons>
+ </ion-card-content>
+</ion-card>
+
+</ion-content>

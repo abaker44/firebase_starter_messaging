@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar *ngFor="let info of recieverInfo">
+    <ion-buttons start>
+     <button ion-button icon-only (click)="goToMessages()">
+       <ion-icon name="ios-arrow-back"></ion-icon>
+     </button>
+    </ion-buttons>
+    <div class="titleicon">
+      <img src = {{info.photoURL}} style="max-width:25px;">
+    </div>
+<p class ="reciever">{{info.displayName}}</p>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list no-lines>
+   <ion-item *ngFor="let message of messagesList">
+    <h3>{{message.name}}</h3>
+    <p>{{message.message}}</p>
+   </ion-item>
+  </ion-list>
+ </ion-content>
+ <ion-footer>
+  <form [formGroup]="addMessage" (submit)="send()" >
+ <ion-item>
+  <ion-input #message formControlName="message" type="text" placeholder="type here..."></ion-input>
+  <button ion-button clear item-right type="submit" >Send</button>
+ </ion-item>
+</form>
+ </ion-footer>

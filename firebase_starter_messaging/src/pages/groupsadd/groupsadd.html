@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Groups</ion-title>
+    <ion-buttons end>
+
+   </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <form [formGroup]="addGroupForm" (submit)="addGroup()" >
+
+    <ion-item>
+      <ion-label stacked>Name</ion-label>
+      <ion-input #groupName formControlName="groupName" type="text" placeholder="Group Name">
+        </ion-input>
+    </ion-item>
+<ion-item>
+<ion-input #groupDetails formControlName="groupDetails" type="text" placeholder="Group Details">
+  </ion-input>
+</ion-item>
+<ion-item>
+  <ion-label>Public</ion-label>
+<ion-checkbox #groupPublic formControlName="groupPublic" type="checkBox">
+</ion-checkbox>
+</ion-item>
+ <button ion-button block type="submit">
+   Create Event
+ </button>
+</form>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Groups</ion-title>
+    <ion-buttons end>
+
+   </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let group of currentGroup">
+     <ion-card-header>
+       {{group?.groupName}}
+     </ion-card-header>
+     <ion-card-content>
+       <p>Details: <strong>{{group?.groupDetails}}</strong></p>
+     </ion-card-content>
+   </ion-card>
+<h3> Group Members </h3>
+   <ion-card *ngFor="let member of groupMembers">
+     <ion-avatar item-start>
+          <img src={{member?.photoURL}} style="max-width: 75px">
+        </ion-avatar>
+      <ion-card-header>
+        {{member?.displayName}}
+      </ion-card-header>
+      <ion-card-content>
+        <p>Email: <strong>{{member?.email}}</strong></p>
+      </ion-card-content>
+    </ion-card>
+
+</ion-content>

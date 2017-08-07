@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+    <ion-buttons start>
+     <button ion-button icon-only (click)="goToSettings()">
+       <ion-icon name="ios-settings"></ion-icon>
+     </button>
+   </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      My Groups
+</ion-card-header>
+<ion-list>
+  <ion-item-sliding *ngFor="let group of groupList">
+ <ion-item (click)="goToGroupDetail(group.key)">
+     <h2>{{group?.groupName}}</h2>
+     <p>Details: <strong>{{group?.groupDetails}}</strong></p>
+     <p>public: <strong>{{group?.public}}</strong></p>
+
+
+   </ion-item>
+   <ion-item-options side="right">
+     <button ion-button color="danger" (click)="archiveGroup(event.key)">
+       <ion-icon name="archive"></ion-icon>
+       Archive
+     </button>
+   </ion-item-options>
+
+ </ion-item-sliding>
+ </ion-list>
+ </ion-card>
+
+ <!-- Events -->
+  <ion-card>
+    <ion-card-header>
+      My Events
+</ion-card-header>
+ <ion-list>
+     <ion-item-sliding *ngFor="let event of eventList">
+    <ion-item  (click)="goToEventDetail(event.key)">
+ <ion-card-title>
+      <h2>{{event?.title}}</h2>
+    </ion-card-title>
+      <p>Date: <strong>{{event?.date}}</strong></p>
+      <p>Location: <strong>{{event?.location}}</strong></p>
+      <p>Details: <strong>{{event?.details}}</strong></p>
+      <p>Public: <strong>{{event?.public}}</strong></p>
+
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button color="danger" (click)="archiveEvent(event.key)">
+        <ion-icon name="archive"></ion-icon>
+        Archive
+      </button>
+    </ion-item-options>
+
+  </ion-item-sliding>
+ </ion-list>
+  </ion-card>
+</ion-content>

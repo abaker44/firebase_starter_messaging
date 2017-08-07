@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar *ngFor="let info of recieverInfo">
+    <div class="titleicon">
+      <img src = {{info.photoURL}} style="max-width:25px;">
+    </div>
+    <!-- <ion-buttons start>
+     <button ion-button icon-only (click)="goToMessages()">
+       <ion-icon name="ios-arrow-back"></ion-icon>
+     </button>
+   </ion-buttons> -->
+    <p class ="reciever">{{info.displayName}}</p>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngFor="let message of messageList">
+
+     <ion-card *ngIf="message.sender == currentUserID" style="width: 75%; float:right;">
+       <ion-avatar *ngIf="message.sender == currentUserID" class="message" style="float: right;">
+     <img src={{message.photoURL}} style="max-width: 30px; margin: 10px;">
+   </ion-avatar>
+     <ion-avatar *ngIf="message.sender != currentUserID" class="message" style="float: left;">
+   <img src={{message.photoURL}} style="max-width: 30px; margin: 10px;">
+   </ion-avatar>
+
+      <ion-card-content *ngIf="message.sender == currentUserID" class="message" style="float: left;">{{message.message}}</ion-card-content>
+      <ion-card-content *ngIf="message.sender != currentUserID" class="message" style="float: right;">{{message.message}}</ion-card-content>
+      <!-- <ion-card-content class="message" style="float: right;">{{message.time}}</ion-card-content> -->
+    </ion-card>
+
+
+
+
+    <ion-card *ngIf="message.sender != currentUserID" style="width: 75%; float:left;">
+      <ion-avatar *ngIf="message.sender == currentUserID" class="message" style="float: right;">
+    <img src={{message.photoURL}} style="max-width: 30px; margin: 10px;">
+  </ion-avatar>
+    <ion-avatar *ngIf="message.sender != currentUserID" class="message" style="float: left;">
+  <img src={{message.photoURL}} style="max-width: 30px; margin: 10px;">
+  </ion-avatar>
+
+     <ion-card-content *ngIf="message.sender == currentUserID" class="message" style="float: left;">{{message.message}}</ion-card-content>
+     <ion-card-content *ngIf="message.sender != currentUserID" class="message" style="float: right;">{{message.message}}</ion-card-content>
+     <!-- <ion-card-content class="message" style="float: right;">{{message.time}}</ion-card-content> -->
+   </ion-card>
+
+
+</div>
+
+ </ion-content>
+ <ion-footer>
+   <form [formGroup]="addMessage" (submit)="sendMessage()" >
+  <ion-item>
+    <ion-input #message formControlName="message" type="text" placeholder="type here..."></ion-input>
+    <button ion-button clear item-right type="submit" >Send</button>
+  </ion-item>
+  </form>
+ </ion-footer>

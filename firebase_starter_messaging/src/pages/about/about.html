@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Events</ion-title>
+    <ion-buttons start>
+     <button ion-button icon-only (click)="goToSettings()">
+       <ion-icon name="ios-settings"></ion-icon>
+     </button>
+   </ion-buttons>
+   <ion-buttons end>
+    <button ion-button icon-only (click)="addEvent()">
+      <ion-icon name="ios-add"></ion-icon>
+    </button>
+  </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar>
+      <ion-segment [(ngModel)]="eventSegment">
+        <ion-segment-button value="publicEvents" (click)="getPublicEvents()">
+          Public
+        </ion-segment-button>
+        <ion-segment-button value="myEvents" (click)="getMyEvents()">
+          My Events
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+
+<ion-list>
+    <ion-item-sliding *ngFor="let event of eventList">
+   <ion-item  (click)="goToEventDetail(event.key)">
+<ion-card-title>
+     <h2>{{event?.title}}</h2>
+   </ion-card-title>
+     <p>Date: <strong>{{event?.date}}</strong></p>
+     <p>Location: <strong>{{event?.location}}</strong></p>
+     <p>Details: <strong>{{event?.details}}</strong></p>
+     <p>Public: <strong>{{event?.public}}</strong></p>
+
+   </ion-item>
+   <ion-item-options side="right">
+     <button ion-button color="danger" (click)="archive(event.key)">
+       <ion-icon name="archive"></ion-icon>
+       Archive
+     </button>
+   </ion-item-options>
+
+ </ion-item-sliding>
+</ion-list>
+
+
+
+</ion-content>
