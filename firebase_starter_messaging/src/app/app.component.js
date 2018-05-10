@@ -21,12 +21,12 @@ var MyApp = (function () {
         this.rootPage = TabsPage;
         // Initialize Firebase
         var config = {
-            apiKey: "AIzaSyAbbLo2-DzOIZix4zZOqGA3uMd7vZs8DTs",
-            authDomain: "ionic-9c2d3.firebaseapp.com",
-            databaseURL: "https://ionic-9c2d3.firebaseio.com/",
-            projectId: "ionic-9c2d3",
-            storageBucket: "gs://ionic-9c2d3.appspot.com",
-            messagingSenderId: "739485368266"
+            apiKey: "",
+            authDomain: "",
+            databaseURL: "",
+            projectId: "",
+            storageBucket: "",
+            messagingSenderId: ""
         };
         firebase.initializeApp(config);
         firebase.auth().onAuthStateChanged(function (user) {
